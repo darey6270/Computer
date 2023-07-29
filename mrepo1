@@ -81,40 +81,4 @@ class RobotAliceblueSerializer(serializers.ModelSerializer):
         model = robotaliceblue
         fields = "__all__"
 
-class alpacatransSerializer(serializers.ModelSerializer):
-    customer_id=serializers.CharField(default=255)
-    transaction_id=serializers.CharField(default=255)
-    account_number=serializers.CharField(default=255)
-    status=serializers.CharField(default=255)
-    crypto_status=serializers.CharField(default=255)
-    currency=serializers.CharField(default=255)
-    buying_power=serializers.CharField(default=255)
-    regt_buying_power=serializers.CharField(default=255)
-    daytrading_buying_power= serializers.CharField(default=255)
-    non_marginable_buying_power=serializers.CharField(default=255)
-    cash=serializers.CharField(default=255)
-    accrued_fees=serializers.CharField(default=255)
-    pending_transfer_out=serializers.CharField(default=255)
-    pending_transfer_in= serializers.CharField(default=255)
-    portfolio_value=serializers.CharField(default=255)
-    pattern_day_trader=serializers.CharField(default=255)
-    trading_blocked=serializers.CharField(default=255)
-    transfers_blocked=serializers.CharField(default=255)
-    account_blocked=serializers.CharField(default=255)
-    created_at= serializers.CharField(default=255)
-    trade_suspended_by_user=serializers.CharField(default=255)
-    multiplier=serializers.CharField(default=255)
-    shorting_enabled=serializers.CharField(default=255)
-    equity=serializers.CharField(default=255)
-    last_equity=serializers.CharField(default=255)
-    long_market_value=serializers.CharField(default=255)
-    short_market_value= serializers.CharField(default=255)
-    initial_margin=serializers.CharField(default=255)
-    maintenance_margin= serializers.CharField(default=255)
-    last_maintenance_margin= serializers.CharField(default=255)
-    sma=serializers.CharField(default=255)
-    daytrade_count=serializers.CharField(default=255)
-
-  
-        fields = "__all__"
 
