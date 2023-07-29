@@ -1,4 +1,22 @@
-
+import os
+import pandas as pd
+import numpy as np
+from plotly.subplots import make_subplots
+import requests
+import math
+from tvDatafeed import TvDatafeed, Interval
+from telegram_notifier import TelegramNotifier
+from pathlib import Path
+from scipy.signal import argrelextrema
+import pygsheets
+import pathlib
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+import socket
+import talib as ta
+import simplejson
+import json
+from scipy.stats import linregress
     
     class Meta:
         db_table = "stockdata"
@@ -174,57 +192,6 @@ class alpacatransSerializer(serializers.ModelSerializer):
     sma=serializers.CharField(default=255)
     daytrade_count=serializers.CharField(default=255)
 
-    class Meta:
-        model=alpacatrans
-        fields = "__all__"
-
-
-class RobotDemoSerializer(serializers.ModelSerializer):
-    stock = serializers.CharField(max_length=25)
-    source = serializers.CharField(max_length=100)
-    alpaca = serializers.CharField(max_length=100, required=False)
-    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
-    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
-    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
-    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
-    length = serializers.FloatField( allow_null=True, required=False,default=5000)
-    interval = serializers.CharField(default=3)
-    qty = serializers.FloatField(default=1)
-    deviationfactor = serializers.FloatField(default=0.7)
-    api_key=serializers.CharField(max_length=255)
-    api_secret=serializers.CharField(max_length=255)
-    api_endpoint=serializers.CharField(max_length=255)
-    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
-    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
-    email=serializers.CharField(max_length=255,required=False, default="99999999")
-    status = serializers.FloatField(default=1)
-    customerId = serializers.FloatField(allow_null=True, required=False)
-
-    class Meta:
-        model = robotdemo
-        fields = "__all__"
-
-
-
-class SignalsRobotSerializer(serializers.ModelSerializer):
-    stock = serializers.CharField(max_length=25)
-    source = serializers.CharField(max_length=100)
-    alpaca = serializers.CharField(max_length=100, required=False)
-    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
-    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
-    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
-    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
-    length = serializers.FloatField( allow_null=True, required=False,default=5000)
-    interval = serializers.CharField(default=3)
-    qty = serializers.FloatField(default=1)
-    deviationfactor = serializers.FloatField(default=0.7)
-    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
-    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
-    email=serializers.CharField(max_length=255,required=False, default="99999999")
-    status = serializers.FloatField(default=1)
-    customerId = serializers.FloatField(allow_null=True, required=False)
-
-    class Meta:
-        model = signalsrobot
+  
         fields = "__all__"
 
