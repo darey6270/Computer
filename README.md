@@ -8,10 +8,6 @@ Main Brnach
 
 India - Prod Build Status
 
-[![Build Status](https://dev.azure.com/algoautotrader/AlgoAutoTrader-Dev/_apis/build/status/Finance-India-Prod?branchName=india-prod)](https://dev.azure.com/algoautotrader/AlgoAutoTrader-Dev/_build/latest?definitionId=2&branchName=india-prod)
-
-### Workflow Details
-
 
 
 ### Notes
