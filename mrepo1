@@ -26,3 +26,205 @@ class robotalpaca(models.Model):
     customerId = models.FloatField(blank=True, null=True,default=1)
 
 
+from rest_framework import serializers
+from .models import stockdata,robotalpaca,robotig,robotaliceblue,alpacatrans,robotdemo,signalsrobot
+
+
+class StockdataSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    alpaca = serializers.CharField(max_length=100, required=False)
+    ig = serializers.CharField(max_length=100, required=False)
+  
+    starttime = serializers.DateTimeField(required=False, allow_null=True,
+        format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField(
+        max_value=None, min_value=None, required=False
+    )
+    portfolioId = serializers.IntegerField(
+        max_value=None, min_value=None, required=False
+    )
+    length = serializers.FloatField(allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(required=False,default=3)
+    qty = serializers.FloatField(required=False,default=1)
+    deviationfactor = serializers.FloatField(required=False,default=0.7)
+    telegram=serializers.CharField(max_length=255)
+    whatsapp=serializers.CharField(max_length=255)
+    email=serializers.CharField(max_length=255)
+
+    class Meta:
+        model = stockdata
+        fields = "__all__"
+
+
+
+class RobotAlpacaSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    alpaca = serializers.CharField(max_length=100, required=False)
+    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    length = serializers.FloatField( allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(default=3)
+    qty = serializers.FloatField(default=1)
+    deviationfactor = serializers.FloatField(default=0.7)
+    api_key=serializers.CharField(max_length=255)
+    api_secret=serializers.CharField(max_length=255)
+    api_endpoint=serializers.CharField(max_length=255)
+    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
+    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
+    email=serializers.CharField(max_length=255,required=False, default="99999999")
+    status = serializers.FloatField(default=1)
+    customerId = serializers.FloatField(allow_null=True, required=False)
+
+    class Meta:
+        model = robotalpaca
+        fields = "__all__"
+
+    
+
+class RobotIgSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    ig = serializers.CharField(max_length=100, required=False)
+    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    length = serializers.FloatField( allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(default=3)
+    qty = serializers.FloatField(default=1)
+    deviationfactor = serializers.FloatField(default=0.7)
+    username=serializers.CharField(max_length=255)
+    password=serializers.CharField(max_length=255)
+    api_key=serializers.CharField(max_length=255)
+    acc_type=serializers.CharField(max_length=255)
+    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
+    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
+    email=serializers.CharField(max_length=255,required=False, default="99999999")
+    status = serializers.FloatField(default=1)
+    customerId = serializers.FloatField(allow_null=True, required=False)
+
+    class Meta:
+        model = robotig
+        fields = "__all__"
+
+
+class RobotAliceblueSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    aliceblue = serializers.CharField(max_length=100, required=False)
+    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    length = serializers.FloatField( allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(default=3)
+    qty = serializers.FloatField(default=1)
+    deviationfactor = serializers.FloatField(default=0.7)
+    username=serializers.CharField(default=255)
+    password=serializers.CharField(default=255)
+    api_key=serializers.CharField(default=255)
+    secret_key=serializers.CharField(default=255)
+    twofa=serializers.CharField(default=255)
+    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
+    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
+    email=serializers.CharField(max_length=255,required=False, default="99999999")
+    status = serializers.FloatField(default=1)
+    customerId = serializers.FloatField(allow_null=True, required=False)
+
+    class Meta:
+        model = robotaliceblue
+        fields = "__all__"
+
+class alpacatransSerializer(serializers.ModelSerializer):
+    customer_id=serializers.CharField(default=255)
+    transaction_id=serializers.CharField(default=255)
+    account_number=serializers.CharField(default=255)
+    status=serializers.CharField(default=255)
+    crypto_status=serializers.CharField(default=255)
+    currency=serializers.CharField(default=255)
+    buying_power=serializers.CharField(default=255)
+    regt_buying_power=serializers.CharField(default=255)
+    daytrading_buying_power= serializers.CharField(default=255)
+    non_marginable_buying_power=serializers.CharField(default=255)
+    cash=serializers.CharField(default=255)
+    accrued_fees=serializers.CharField(default=255)
+    pending_transfer_out=serializers.CharField(default=255)
+    pending_transfer_in= serializers.CharField(default=255)
+    portfolio_value=serializers.CharField(default=255)
+    pattern_day_trader=serializers.CharField(default=255)
+    trading_blocked=serializers.CharField(default=255)
+    transfers_blocked=serializers.CharField(default=255)
+    account_blocked=serializers.CharField(default=255)
+    created_at= serializers.CharField(default=255)
+    trade_suspended_by_user=serializers.CharField(default=255)
+    multiplier=serializers.CharField(default=255)
+    shorting_enabled=serializers.CharField(default=255)
+    equity=serializers.CharField(default=255)
+    last_equity=serializers.CharField(default=255)
+    long_market_value=serializers.CharField(default=255)
+    short_market_value= serializers.CharField(default=255)
+    initial_margin=serializers.CharField(default=255)
+    maintenance_margin= serializers.CharField(default=255)
+    last_maintenance_margin= serializers.CharField(default=255)
+    sma=serializers.CharField(default=255)
+    daytrade_count=serializers.CharField(default=255)
+
+    class Meta:
+        model=alpacatrans
+        fields = "__all__"
+
+
+class RobotDemoSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    alpaca = serializers.CharField(max_length=100, required=False)
+    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    length = serializers.FloatField( allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(default=3)
+    qty = serializers.FloatField(default=1)
+    deviationfactor = serializers.FloatField(default=0.7)
+    api_key=serializers.CharField(max_length=255)
+    api_secret=serializers.CharField(max_length=255)
+    api_endpoint=serializers.CharField(max_length=255)
+    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
+    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
+    email=serializers.CharField(max_length=255,required=False, default="99999999")
+    status = serializers.FloatField(default=1)
+    customerId = serializers.FloatField(allow_null=True, required=False)
+
+    class Meta:
+        model = robotdemo
+        fields = "__all__"
+
+
+
+class SignalsRobotSerializer(serializers.ModelSerializer):
+    stock = serializers.CharField(max_length=25)
+    source = serializers.CharField(max_length=100)
+    alpaca = serializers.CharField(max_length=100, required=False)
+    starttime = serializers.DateTimeField(required=False, allow_null=True, format="%Y-%m-%d")
+    endtime = serializers.DateTimeField(required=False, format="%Y-%m-%d")
+    categoryId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    portfolioId = serializers.IntegerField( max_value=None, min_value=None, required=False )
+    length = serializers.FloatField( allow_null=True, required=False,default=5000)
+    interval = serializers.CharField(default=3)
+    qty = serializers.FloatField(default=1)
+    deviationfactor = serializers.FloatField(default=0.7)
+    telegram=serializers.CharField(max_length=255,required=False, default="99999999")
+    whatsapp=serializers.CharField(max_length=255,required=False, default="99999999")
+    email=serializers.CharField(max_length=255,required=False, default="99999999")
+    status = serializers.FloatField(default=1)
+    customerId = serializers.FloatField(allow_null=True, required=False)
+
+    class Meta:
+        model = signalsrobot
+        fields = "__all__"
+
