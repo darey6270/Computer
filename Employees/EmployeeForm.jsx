@@ -1,31 +1,24 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, makeStyles, Radio, RadioGroup, TextField } from '@material-ui/core';
-import React, { useState } from 'react'
-import { useForm, Form } from '../../components/useForm';
-import { Controls } from '../../components/controls/Controls';
+    -->
+    <title>React App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-
-const initialFValues = {
-    id: 0,
-    fullName: '',
-    email: '',
-    mobile: '',
-    city:'',
-    gender:'male',
-    departmentId: '',
-    hireDate: new Date(),
-    isPermanent:false,
- };
-
-const genderItems = [
-    { id: 'male', title: 'Male' },
-    { id: 'female', title: 'Female' },
-    { id: 'other', title: 'Other' }
-];
-
-
-export default function EmployeeForm() {
-    const {values ,setValues, handleInputChange}=useForm(initialFValues)
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
+        m(initialFValues)
 
     return (
 <Form>
